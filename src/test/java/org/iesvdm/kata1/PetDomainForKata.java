@@ -33,6 +33,9 @@ public abstract class PetDomainForKata
 
     public Optional<Person> getPersonNamed(String fullName)
     {
-        return Optional.empty(); //TODO
+        var result = this.people.stream()
+                .filter(p -> p.getFullName().equals(fullName))
+                .toList();
+        return result.isEmpty() ? Optional.empty() : Optional.of(result.get(0));
     }
 }

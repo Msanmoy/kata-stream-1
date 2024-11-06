@@ -25,7 +25,11 @@ public enum PetType
 
     public static PetType fromEmoji(String searchEmoji)
     {
-        // Find the correct PetType based on the String emoji
+        for (PetType petType : PetType.values()) {
+            if (petType.emoji.equals(searchEmoji)) {
+                return petType;
+            }
+        }
         return null;
     }
 }
